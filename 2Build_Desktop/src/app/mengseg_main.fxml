@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MengSeg_Main_Controller">
+   <top>
+      <TabPane prefHeight="600.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="单行">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextArea id="text" fx:id="text" layoutX="26.0" layoutY="21.0" prefHeight="111.0" prefWidth="478.0" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextArea>
+                        <Button id="runAll" fx:id="runAll" defaultButton="true" ellipsisString="runAll" layoutX="527.0" layoutY="73.0" mnemonicParsing="false" onAction="#RunAllSingleLine" prefHeight="57.0" prefWidth="58.0" text="运行" />
+                        <CheckBox id="CWS" fx:id="CWS" ellipsisString="CWS" layoutX="86.0" layoutY="227.0" mnemonicParsing="false" selected="true" text="中文分词" />
+                        <CheckBox id="POSTagging" fx:id="POSTagging" ellipsisString="POSTagging" layoutX="180.0" layoutY="227.0" mnemonicParsing="false" text="词性标注" />
+                        <CheckBox id="NER" fx:id="NER" ellipsisString="NER" layoutX="265.0" layoutY="227.0" mnemonicParsing="false" text="命名实体识别" />
+                        <Label layoutX="26.0" layoutY="145.0" text="选择领域(默认通用领域):" />
+                        <Label layoutX="26.0" layoutY="202.0" text="选择功能(默认进行中文分词):" />
+                        <Label layoutX="26.0" layoutY="333.0" text="运行结果:" />
+                        <Label layoutX="26.0" layoutY="255.0" text="额外功能:" />
+                        <CheckBox id="addRuler" fx:id="addRuler" layoutX="86.0" layoutY="284.0" mnemonicParsing="false" text="添加规则" />
+                        <Button id="learn" fx:id="learn" defaultButton="true" layoutX="445.0" layoutY="280.0" mnemonicParsing="false" onAction="#AddLearnRuler" text="学习" textAlignment="CENTER" />
+                        <TextField id="model_text" fx:id="model_text" layoutX="170.0" layoutY="280.0" prefHeight="27.0" prefWidth="265.0" />
+                        <RadioButton id="addFinance" fx:id="addFinance" layoutX="86.0" layoutY="169.0" mnemonicParsing="false" text="金融">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="single" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton id="addMedicine" fx:id="addMedicine" layoutX="180.0" layoutY="169.0" mnemonicParsing="false" text="医疗" toggleGroup="$single" />
+                        <RadioButton id="addLaw" fx:id="addLaw" layoutX="266.0" layoutY="169.0" mnemonicParsing="false" text="法律" toggleGroup="$single" />
+                        <TextArea id="result" fx:id="result" layoutX="21.0" layoutY="353.0" prefHeight="200.0" prefWidth="559.0" wrapText="true" />
+                        <Button id="clear_ruler" fx:id="clear_ruler" layoutX="498.0" layoutY="280.0" mnemonicParsing="false" onAction="#ClearRuler" text="清空" />
+                        <RadioButton id="origin" fx:id="origin" layoutX="345.0" layoutY="169.0" mnemonicParsing="false" selected="true" text="还原" toggleGroup="$single" />
+                        <Button id="refresh" fx:id="refresh" cancelButton="true" layoutX="526.0" layoutY="21.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="37.0" prefWidth="58.0" text="还原" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="文件">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="47.0" text="输入文件" />
+                        <Button id="choose" fx:id="chooseInput" ellipsisString="choose" layoutX="542.0" layoutY="42.0" mnemonicParsing="false" onAction="#ChooseInputFile" text="选择" />
+                        <TextField id="inputPath" fx:id="inputFile" layoutX="70.0" layoutY="42.0" prefHeight="27.0" prefWidth="467.0" />
+                        <Button id="runAllFile" fx:id="runAllFile" ellipsisString="runAllFile" layoutX="133.0" layoutY="276.0" mnemonicParsing="false" onAction="#RunAllFile" prefHeight="27.0" prefWidth="335.0" text="运行" />
+                        <Label layoutX="14.0" layoutY="84.0" text="输出目录" />
+                        <TextField id="outputPath" fx:id="outputPath" layoutX="70.0" layoutY="79.0" prefHeight="27.0" prefWidth="467.0" />
+                        <Button id="choose2" fx:id="chooseOutput" ellipsisString="choose2" layoutX="542.0" layoutY="79.0" mnemonicParsing="false" onAction="#ChooseOutputPath" text="选择" />
+                        <CheckBox id="CWSFile" fx:id="CWSFile" ellipsisString="CWSFile" layoutX="81.0" layoutY="227.0" mnemonicParsing="false" text="中文分词" />
+                        <CheckBox id="POSTaggingFile" fx:id="POSTaggingFile" ellipsisString="POSTaggingFile" layoutX="182.0" layoutY="227.0" mnemonicParsing="false" text="词性标注" />
+                        <CheckBox id="NERFile" fx:id="NERFile" ellipsisString="NERFile" layoutX="278.0" layoutY="227.0" mnemonicParsing="false" text="命名实体识别" />
+                        <Label layoutX="14.0" layoutY="140.0" text="选择领域(默认通用领域):" />
+                        <Label layoutX="14.0" layoutY="195.0" text="选择功能(默认进行中文分词):" />
+                        <Label layoutX="14.0" layoutY="331.0" text="运行结果:" />
+                        <RadioButton id="addFinanceFile" fx:id="addFinanceFile" layoutX="81.0" layoutY="169.0" mnemonicParsing="false" text="金融">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="file" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton id="addMedicineFile" fx:id="addMedicineFile" layoutX="182.0" layoutY="169.0" mnemonicParsing="false" text="医疗" />
+                        <RadioButton id="addLawFile" fx:id="addLawFile" layoutX="278.0" layoutY="169.0" mnemonicParsing="false" text="法律" />
+                        <TextArea id="result2" fx:id="result2" layoutX="18.0" layoutY="353.0" prefHeight="200.0" prefWidth="564.0" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </top>
+</BorderPane>
