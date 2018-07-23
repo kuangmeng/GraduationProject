@@ -1,15 +1,22 @@
 package app;
 	
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.stage.Stage;
+import mitlab.seg.MengPOSTagging;
+import mitlab.seg.MengSeg;
+import mitlab.seg.crf_seg.library.CrfLibrary;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 
 public class MengSeg_Main extends Application {
+  public static MengSeg cws = CrfLibrary.get();
+  public static MengPOSTagging postagging = null;
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {		  
@@ -24,7 +31,8 @@ public class MengSeg_Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+	    postagging = new MengPOSTagging();
 		launch(args);
 	}
 }

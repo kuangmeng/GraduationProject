@@ -36,7 +36,10 @@
                         </RadioButton>
                         <RadioButton id="addMedicine" fx:id="addMedicine" layoutX="180.0" layoutY="169.0" mnemonicParsing="false" text="医疗" toggleGroup="$single" />
                         <RadioButton id="addLaw" fx:id="addLaw" layoutX="266.0" layoutY="169.0" mnemonicParsing="false" text="法律" toggleGroup="$single" />
-                        <TextArea id="result" fx:id="result" layoutX="21.0" layoutY="353.0" prefHeight="200.0" prefWidth="559.0" wrapText="true" />
+                        <TextArea id="result" fx:id="result" layoutX="21.0" layoutY="353.0" prefHeight="200.0" prefWidth="559.0" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextArea>
                         <Button id="clear_ruler" fx:id="clear_ruler" layoutX="498.0" layoutY="280.0" mnemonicParsing="false" onAction="#ClearRuler" text="清空" />
                         <RadioButton id="origin" fx:id="origin" layoutX="345.0" layoutY="169.0" mnemonicParsing="false" selected="true" text="还原" toggleGroup="$single" />
                         <Button id="refresh" fx:id="refresh" cancelButton="true" layoutX="526.0" layoutY="21.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="37.0" prefWidth="58.0" text="还原" />
@@ -51,11 +54,11 @@
                         <Label layoutX="14.0" layoutY="47.0" text="输入文件" />
                         <Button id="choose" fx:id="chooseInput" ellipsisString="choose" layoutX="542.0" layoutY="42.0" mnemonicParsing="false" onAction="#ChooseInputFile" text="选择" />
                         <TextField id="inputPath" fx:id="inputFile" layoutX="70.0" layoutY="42.0" prefHeight="27.0" prefWidth="467.0" />
-                        <Button id="runAllFile" fx:id="runAllFile" ellipsisString="runAllFile" layoutX="133.0" layoutY="276.0" mnemonicParsing="false" onAction="#RunAllFile" prefHeight="27.0" prefWidth="335.0" text="运行" />
+                        <Button id="runAllFile" fx:id="runAllFile" defaultButton="true" ellipsisString="runAllFile" layoutX="200.0" layoutY="276.0" mnemonicParsing="false" onAction="#RunAllFile" prefHeight="27.0" prefWidth="268.0" text="运行" />
                         <Label layoutX="14.0" layoutY="84.0" text="输出目录" />
                         <TextField id="outputPath" fx:id="outputPath" layoutX="70.0" layoutY="79.0" prefHeight="27.0" prefWidth="467.0" />
                         <Button id="choose2" fx:id="chooseOutput" ellipsisString="choose2" layoutX="542.0" layoutY="79.0" mnemonicParsing="false" onAction="#ChooseOutputPath" text="选择" />
-                        <CheckBox id="CWSFile" fx:id="CWSFile" ellipsisString="CWSFile" layoutX="81.0" layoutY="227.0" mnemonicParsing="false" text="中文分词" />
+                        <CheckBox id="CWSFile" fx:id="CWSFile" ellipsisString="CWSFile" layoutX="81.0" layoutY="227.0" mnemonicParsing="false" selected="true" text="中文分词" />
                         <CheckBox id="POSTaggingFile" fx:id="POSTaggingFile" ellipsisString="POSTaggingFile" layoutX="182.0" layoutY="227.0" mnemonicParsing="false" text="词性标注" />
                         <CheckBox id="NERFile" fx:id="NERFile" ellipsisString="NERFile" layoutX="278.0" layoutY="227.0" mnemonicParsing="false" text="命名实体识别" />
                         <Label layoutX="14.0" layoutY="140.0" text="选择领域(默认通用领域):" />
@@ -66,9 +69,14 @@
                               <ToggleGroup fx:id="file" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton id="addMedicineFile" fx:id="addMedicineFile" layoutX="182.0" layoutY="169.0" mnemonicParsing="false" text="医疗" />
-                        <RadioButton id="addLawFile" fx:id="addLawFile" layoutX="278.0" layoutY="169.0" mnemonicParsing="false" text="法律" />
-                        <TextArea id="result2" fx:id="result2" layoutX="18.0" layoutY="353.0" prefHeight="200.0" prefWidth="564.0" wrapText="true" />
+                        <RadioButton id="addMedicineFile" fx:id="addMedicineFile" layoutX="182.0" layoutY="169.0" mnemonicParsing="false" text="医疗" toggleGroup="$file" />
+                        <RadioButton id="addLawFile" fx:id="addLawFile" layoutX="278.0" layoutY="169.0" mnemonicParsing="false" text="法律" toggleGroup="$file" />
+                        <TextArea id="result2" fx:id="result2" layoutX="18.0" layoutY="353.0" prefHeight="200.0" prefWidth="564.0" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextArea>
+                        <Button id="refresh_file" fx:id="refresh_file" cancelButton="true" layoutX="119.0" layoutY="276.0" mnemonicParsing="false" onAction="#RefreshFile" text="还原" />
+                        <RadioButton id="origin_file" fx:id="origin_file" layoutX="368.0" layoutY="169.0" mnemonicParsing="false" selected="true" text="还原" toggleGroup="$file" />
                      </children>
                   </AnchorPane>
                </content>
